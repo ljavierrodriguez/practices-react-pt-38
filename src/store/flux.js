@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-            apiURL: 'http://localhost:3000',
+            apiURL: 'https://jsonplaceholder.typicode.com',
             name: null, 
             contacts: null
         },
@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             getContacts: () => {
                 const store = getStore()
-                fetch(`${store.apiURL}/contacts`)
+                fetch(`${store.apiURL}/users`)
                     .then(response => response.json())
                     .then(data => setStore({ contacts: data }))
             }
